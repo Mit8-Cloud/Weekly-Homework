@@ -20,8 +20,11 @@ class TweetsController < ApplicationController
 
   def show
     @tweet = Tweet.find(params[:id])
+# ===============追加==============
+    @user = @tweet.user
+# ================================
   end
-# ===============追加=============
+
   private
     def tweet_params
       params.require(:tweet).permit(:body) # tweetモデルのカラムのみを許可
